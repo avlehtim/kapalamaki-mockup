@@ -2,76 +2,84 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Käpälämäki – Vuokramökki Hollolassa</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-orange-50 text-stone-900">
   <!-- Header -->
-  <header class="bg-orange-900 text-white text-center py-8 shadow-lg">
-    <h1 class="text-3xl font-bold">🐾 Käpälämäki</h1>
-    <p class="mt-2 text-lg">Vuokramökki Hollolassa</p>
+  <header class="bg-orange-900 text-white text-center py-4 sm:py-8 shadow-lg">
+    <h1 class="text-2xl sm:text-3xl font-bold">🐾 Käpälämäki</h1>
+    <p class="mt-1 sm:mt-2 text-base sm:text-lg">Vuokramökki Hollolassa</p>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+  <main class="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-8 space-y-4 sm:space-y-8">
 
     <!-- Kuvaus -->
-    <section class="bg-orange-100 border border-orange-300 p-8 shadow-md">
-      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Kuvaus</h2>
-      <p class="mb-4">
+    <section class="bg-orange-100 border border-orange-300 p-4 sm:p-8 shadow-md rounded-lg">
+      <h2 class="text-xl sm:text-2xl font-semibold text-orange-900 mb-3 sm:mb-4">Kuvaus</h2>
+      <p class="mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
         Käpälämäki on kodikas, pieni mökki kauniissa järvimaisemassa Hollolassa. 
         Varusteluun kuuluu avokeittiö, olohuone, makuutila ja vaatehuone, yhteensä 30m². 
         Iso terassi avautuu suoraan järvelle. Saunasta portaat alas laiturille. 
         Sopii rauhalliseen lomailuun kahdelle, enintään kolmelle hengelle.
       </p>
-      <p>
+      <p class="text-sm sm:text-base">
         Etäisyydet: Lahti 30 km, Helsinki 100 km, Hämeenlinna 40 km.
       </p>
     </section>
 
     <!-- Kuvagalleria -->
-    <section class="bg-orange-100 border border-orange-300 p-6 shadow-md">
-      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Kuvagalleria</h2>
+    <section class="bg-orange-100 border border-orange-300 p-3 sm:p-6 shadow-md rounded-lg">
+      <h2 class="text-xl sm:text-2xl font-semibold text-orange-900 mb-3 sm:mb-4">Kuvagalleria</h2>
       <div class="relative flex justify-center items-center">
         <img id="galleryImage" src="1.jpg" alt="Kuva mökistä"
-             class="w-auto max-w-full max-h-[70vh] object-contain border border-orange-400 shadow-md bg-orange-50">
+             class="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover border border-orange-400 shadow-md bg-orange-50 rounded">
 
         <!-- Navigointipainikkeet -->
-        <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-orange-900 text-white px-3 py-2 shadow-md hover:bg-orange-700">&larr;</button>
-        <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-orange-900 text-white px-3 py-2 shadow-md hover:bg-orange-700">&rarr;</button>
+        <button id="prevBtn" class="absolute top-1/2 left-2 sm:left-4 -translate-y-1/2 bg-orange-900 text-white px-2 py-1 sm:px-3 sm:py-2 shadow-md hover:bg-orange-700 rounded text-sm sm:text-base">&larr;</button>
+        <button id="nextBtn" class="absolute top-1/2 right-2 sm:right-4 -translate-y-1/2 bg-orange-900 text-white px-2 py-1 sm:px-3 sm:py-2 shadow-md hover:bg-orange-700 rounded text-sm sm:text-base">&rarr;</button>
       </div>
-      <p id="caption" class="text-center mt-2 text-sm text-stone-700">Kuva 1</p>
+      <p id="caption" class="text-center mt-2 text-xs sm:text-sm text-stone-700">Kuva 1</p>
     </section>
 
     <!-- Hinnat -->
-    <section class="bg-orange-100 border border-orange-300 p-8 shadow-md">
-      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Hinnat</h2>
-      <div class="bg-orange-200 border border-orange-400 p-6 mb-6 shadow-sm hover:shadow-md transition">
-        <strong class="block mb-2">30.9.2025 asti</strong>
-        Viikonloppu (pe–su): 230 €<br>
-        Arkipäivät (ma–to): 180 €
+    <section class="bg-orange-100 border border-orange-300 p-4 sm:p-8 shadow-md rounded-lg">
+      <h2 class="text-xl sm:text-2xl font-semibold text-orange-900 mb-3 sm:mb-4">Hinnat</h2>
+      <div class="bg-orange-200 border border-orange-400 p-3 sm:p-6 mb-3 sm:mb-6 shadow-sm hover:shadow-md transition rounded">
+        <strong class="block mb-2 text-sm sm:text-base">30.9.2025 asti</strong>
+        <div class="text-sm sm:text-base space-y-1">
+          <div>Viikonloppu (pe–su): <span class="font-semibold">230 €</span></div>
+          <div>Arkipäivät (ma–to): <span class="font-semibold">180 €</span></div>
+        </div>
       </div>
-      <div class="bg-orange-200 border border-orange-400 p-6 shadow-sm hover:shadow-md transition">
-        <strong class="block mb-2">1.10.–30.11.2025</strong>
-        Viikonloppu (pe–su): 130 €<br>
-        Arkipäivät (ma–to): 100 €<br>
-        Saunominen (ei yöpymistä, klo 23 asti): 50 €<br>
-        Vuorokausi: 70 €
+      <div class="bg-orange-200 border border-orange-400 p-3 sm:p-6 shadow-sm hover:shadow-md transition rounded">
+        <strong class="block mb-2 text-sm sm:text-base">1.10.–30.11.2025</strong>
+        <div class="text-sm sm:text-base space-y-1">
+          <div>Viikonloppu (pe–su): <span class="font-semibold">130 €</span></div>
+          <div>Arkipäivät (ma–to): <span class="font-semibold">100 €</span></div>
+          <div>Saunominen (ei yöpymistä, klo 23 asti): <span class="font-semibold">50 €</span></div>
+          <div>Vuorokausi: <span class="font-semibold">70 €</span></div>
+        </div>
       </div>
     </section>
 
     <!-- Kalenteri -->
-    <section class="bg-orange-100 border border-orange-300 p-8 shadow-md">
-      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Kalenteri (esimerkkimockup)</h2>
-      <div id="calendar" class="grid grid-cols-7 gap-2 mt-4"></div>
-      <button id="reserveBtn" class="mt-6 px-6 py-3 bg-orange-900 text-white uppercase hover:bg-orange-700 shadow-md transition">
+    <section class="bg-orange-100 border border-orange-300 p-4 sm:p-8 shadow-md rounded-lg">
+      <h2 class="text-xl sm:text-2xl font-semibold text-orange-900 mb-3 sm:mb-4">Kalenteri (esimerkkimockup)</h2>
+      <div id="calendar" class="grid grid-cols-7 gap-1 sm:gap-2 mt-4"></div>
+      <button id="reserveBtn" class="mt-4 sm:mt-6 w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-orange-900 text-white text-sm sm:text-base uppercase hover:bg-orange-700 shadow-md transition rounded">
         Varaa valittu päivä
       </button>
     </section>
 
     <!-- Yhteystiedot -->
-    <section class="bg-orange-100 border border-orange-300 p-8 shadow-md">
-      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Yhteystiedot</h2>
-      <p>Tiedustelut ja varaukset: <strong>p. 040 040 6186</strong></p>
+    <section class="bg-orange-100 border border-orange-300 p-4 sm:p-8 shadow-md rounded-lg">
+      <h2 class="text-xl sm:text-2xl font-semibold text-orange-900 mb-3 sm:mb-4">Yhteystiedot</h2>
+      <p class="text-sm sm:text-base">
+        Tiedustelut ja varaukset: 
+        <a href="tel:+358404006186" class="font-bold text-orange-900 hover:text-orange-700">040 040 6186</a>
+      </p>
     </section>
 
   </main>
@@ -79,7 +87,7 @@
   <script>
     // Kuvagalleria
     let currentImage = 1;
-    const totalImages = 10; // muuta tämän mukaan kuinka monta kuvaa on kansiossa
+    const totalImages = 10;
     const galleryImage = document.getElementById("galleryImage");
     const caption = document.getElementById("caption");
 
@@ -107,15 +115,15 @@
     for (let day = 1; day <= daysInMonth; day++) {
       const cell = document.createElement("div");
       cell.textContent = day;
-      cell.className = "p-4 text-center border border-orange-400 shadow-sm transition";
+      cell.className = "p-2 sm:p-4 text-center border border-orange-400 shadow-sm transition text-xs sm:text-sm rounded";
       
       if (bookedDays.includes(day)) {
         cell.classList.add("bg-orange-600", "text-white");
       } else {
         cell.classList.add("bg-orange-200", "cursor-pointer", "hover:bg-orange-400", "hover:text-white");
         cell.addEventListener("click", () => {
-          document.querySelectorAll("#calendar div").forEach(d => d.classList.remove("ring-4", "ring-orange-900"));
-          cell.classList.add("ring-4", "ring-orange-900");
+          document.querySelectorAll("#calendar div").forEach(d => d.classList.remove("ring-2", "sm:ring-4", "ring-orange-900"));
+          cell.classList.add("ring-2", "sm:ring-4", "ring-orange-900");
           selectedDay = day;
         });
       }
