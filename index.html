@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Käpälämäki – Vuokramökki Hollolassa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-orange-50 text-stone-900">
+  <!-- Header -->
+  <header class="bg-orange-900 text-white text-center py-8 shadow-lg">
+    <h1 class="text-3xl font-bold">🐾 Käpälämäki</h1>
+    <p class="mt-2 text-lg">Vuokramökki Hollolassa</p>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+
+    <!-- Kuvaus -->
+    <section class="bg-orange-100 border border-orange-300 p-8 shadow-md">
+      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Kuvaus</h2>
+      <p class="mb-4">
+        Käpälämäki on kodikas, pieni mökki kauniissa järvimaisemassa Hollolassa. 
+        Varusteluun kuuluu avokeittiö, olohuone, makuutila ja vaatehuone, yhteensä 30m². 
+        Iso terassi avautuu suoraan järvelle. Saunasta portaat alas laiturille. 
+        Sopii rauhalliseen lomailuun kahdelle, enintään kolmelle hengelle.
+      </p>
+      <p>
+        Etäisyydet: Lahti 30 km, Helsinki 100 km, Hämeenlinna 40 km.
+      </p>
+    </section>
+
+    <!-- Kuvagalleria -->
+    <section class="bg-orange-100 border border-orange-300 p-6 shadow-md">
+      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Kuvagalleria</h2>
+      <div class="relative flex justify-center items-center">
+        <img id="galleryImage" src="1.jpg" alt="Kuva mökistä"
+             class="w-auto max-w-full max-h-[70vh] object-contain border border-orange-400 shadow-md bg-orange-50">
+
+        <!-- Navigointipainikkeet -->
+        <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-orange-900 text-white px-3 py-2 shadow-md hover:bg-orange-700">&larr;</button>
+        <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-orange-900 text-white px-3 py-2 shadow-md hover:bg-orange-700">&rarr;</button>
+      </div>
+      <p id="caption" class="text-center mt-2 text-sm text-stone-700">Kuva 1</p>
+    </section>
+
+    <!-- Hinnat -->
+    <section class="bg-orange-100 border border-orange-300 p-8 shadow-md">
+      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Hinnat</h2>
+      <div class="bg-orange-200 border border-orange-400 p-6 mb-6 shadow-sm hover:shadow-md transition">
+        <strong class="block mb-2">30.9.2025 asti</strong>
+        Viikonloppu (pe–su): 230 €<br>
+        Arkipäivät (ma–to): 180 €
+      </div>
+      <div class="bg-orange-200 border border-orange-400 p-6 shadow-sm hover:shadow-md transition">
+        <strong class="block mb-2">1.10.–30.11.2025</strong>
+        Viikonloppu (pe–su): 130 €<br>
+        Arkipäivät (ma–to): 100 €<br>
+        Saunominen (ei yöpymistä, klo 23 asti): 50 €<br>
+        Vuorokausi: 70 €
+      </div>
+    </section>
+
+    <!-- Kalenteri -->
+    <section class="bg-orange-100 border border-orange-300 p-8 shadow-md">
+      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Kalenteri (esimerkkimockup)</h2>
+      <div id="calendar" class="grid grid-cols-7 gap-2 mt-4"></div>
+      <button id="reserveBtn" class="mt-6 px-6 py-3 bg-orange-900 text-white uppercase hover:bg-orange-700 shadow-md transition">
+        Varaa valittu päivä
+      </button>
+    </section>
+
+    <!-- Yhteystiedot -->
+    <section class="bg-orange-100 border border-orange-300 p-8 shadow-md">
+      <h2 class="text-2xl font-semibold text-orange-900 mb-4">Yhteystiedot</h2>
+      <p>Tiedustelut ja varaukset: <strong>p. 040 040 6186</strong></p>
+    </section>
+
+  </main>
+
+  <script>
+    // Kuvagalleria
+    let currentImage = 1;
+    const totalImages = 10; // muuta tämän mukaan kuinka monta kuvaa on kansiossa
+    const galleryImage = document.getElementById("galleryImage");
+    const caption = document.getElementById("caption");
+
+    function showImage(index) {
+      galleryImage.src = index + ".jpg";
+      caption.textContent = "Kuva " + index;
+    }
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      currentImage = (currentImage - 1 < 1) ? totalImages : currentImage - 1;
+      showImage(currentImage);
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      currentImage = (currentImage + 1 > totalImages) ? 1 : currentImage + 1;
+      showImage(currentImage);
+    });
+
+    // Kalenteri (syyskuu 2025)
+    const calendarEl = document.getElementById("calendar");
+    const daysInMonth = 30;
+    const bookedDays = [5, 12, 19]; 
+    let selectedDay = null;
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const cell = document.createElement("div");
+      cell.textContent = day;
+      cell.className = "p-4 text-center border border-orange-400 shadow-sm transition";
+      
+      if (bookedDays.includes(day)) {
+        cell.classList.add("bg-orange-600", "text-white");
+      } else {
+        cell.classList.add("bg-orange-200", "cursor-pointer", "hover:bg-orange-400", "hover:text-white");
+        cell.addEventListener("click", () => {
+          document.querySelectorAll("#calendar div").forEach(d => d.classList.remove("ring-4", "ring-orange-900"));
+          cell.classList.add("ring-4", "ring-orange-900");
+          selectedDay = day;
+        });
+      }
+      calendarEl.appendChild(cell);
+    }
+
+    document.getElementById("reserveBtn").addEventListener("click", () => {
+      if (selectedDay) {
+        alert("Varasit päivän " + selectedDay + ".9.2025 (mockup).");
+      } else {
+        alert("Valitse ensin päivä kalenterista.");
+      }
+    });
+  </script>
+</body>
+</html>
