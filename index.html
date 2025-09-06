@@ -115,7 +115,7 @@
     for (let day = 1; day <= daysInMonth; day++) {
       const cell = document.createElement("div");
       cell.textContent = day;
-      cell.className = "p-2 sm:p-4 text-center border border-orange-400 shadow-sm transition text-xs sm:text-sm rounded";
+      cell.className = "p-3 sm:p-4 text-center border border-orange-400 shadow-sm transition text-sm sm:text-base rounded";
       
       if (bookedDays.includes(day)) {
         cell.classList.add("bg-orange-600", "text-white");
